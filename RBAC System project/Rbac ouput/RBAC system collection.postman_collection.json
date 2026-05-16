@@ -1,0 +1,227 @@
+{
+  "info": {
+    "_postman_id": "424c3b46-7ee2-471a-b81c-d6575360f8b2",
+    "name": "RBAC system collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39881112"
+  },
+  "item": [
+    {
+      "name": "create user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer your_token",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"admin2\",\r\n    \"password\":\"admin123\",\r\n    \"email\":\"admin2@gmail.com\",\r\n    \"roleIds\":[4]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3NzAxNzQ0Mn0.OZN0xTCS74ih2AQDQ-aLbueilpNhiZO1lTmmQ33O6Mw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer your_token",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"admin2\",\r\n    \"password\":\"admin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create permission",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3Nzg5MTU1NjgsImV4cCI6MTc3OTAwMTk2OH0.UTyhrr22Z-On0DW7nmMMn8_j1EAuPWKdOfLfsKZCD3s",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"permissionName\":\"CREATE_USER\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/permissions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "permissions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getallusers",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3Nzg5MTU1NjgsImV4cCI6MTc3OTAwMTk2OH0.UTyhrr22Z-On0DW7nmMMn8_j1EAuPWKdOfLfsKZCD3s",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"admin1\",\r\n    \"password\":\"admin123\",\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"roleIds\":[1]\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create roles",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3Nzg5MTU1NjgsImV4cCI6MTc3OTAwMTk2OH0.UTyhrr22Z-On0DW7nmMMn8_j1EAuPWKdOfLfsKZCD3s",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"roleName\":\"MANAGER\",\r\n    \"permissionIds\":[1]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/roles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "roles"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete user",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3Nzg5MTU1NjgsImV4cCI6MTc3OTAwMTk2OH0.UTyhrr22Z-On0DW7nmMMn8_j1EAuPWKdOfLfsKZCD3s",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"admin1\",\r\n    \"password\":\"admin123\",\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"roleIds\":[1]\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
