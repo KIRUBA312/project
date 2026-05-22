@@ -1,0 +1,358 @@
+{
+  "info": {
+    "_postman_id": "c99ec40a-885d-46fe-82c6-08715f3294f0",
+    "name": "financial service collections",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39881112"
+  },
+  "item": [
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3Nzg5MTU1NjgsImV4cCI6MTc3OTAwMTk2OH0.UTyhrr22Z-On0DW7nmMMn8_j1EAuPWKdOfLfsKZCD3s",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "register user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3Nzg5MTU1NjgsImV4cCI6MTc3OTAwMTk2OH0.UTyhrr22Z-On0DW7nmMMn8_j1EAuPWKdOfLfsKZCD3s",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin123\",\r\n    \"role\":\"ADMIN\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accountHolderName\":\"kiruba\",\r\n    \"balance\":30000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all accounts",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accountHolderName\":\"kiruba\",\r\n    \"balance\":30000\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "credit money",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accountNumber\": \"707208548320\",\r\n    \"amount\":1500\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/credit",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions",
+            "credit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "debit money",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accountNumber\": \"707208548320\",\r\n    \"amount\":1500\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/debit",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions",
+            "debit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "transfer money",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fromAccount\": \"707208548320\",\r\n    \"toAccount\": \"160063477894\",\r\n    \"amount\": 5050,\r\n    \"currency\":\"INR\",\r\n    \"requestKey\":\"REQ124\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/transfer",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions",
+            "transfer"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get transaction by id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fromAccount\": \"707208548320\",\r\n    \"toAccount\": \"160063477894\",\r\n    \"amount\": 5050,\r\n    \"currency\":\"INR\",\r\n    \"requestKey\":\"REQ123\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/639121fd-1bca-42bf-b1f9-6c3f8b4e6776",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions",
+            "639121fd-1bca-42bf-b1f9-6c3f8b4e6776"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get audits logs",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fromAccount\":\"ACC1386902400\",\r\n    \"toAccount\":\"ACC7207582723\",\r\n    \"amount\":1100\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/audits",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "audits"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "metrics",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3OTQ0MjQ4NywiZXhwIjoxNzc5NDc4NDg3fQ.Vgi2FZSiYfSxakiLMCf3XUDNIGA2ufkb-C29PR2NMvQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fromAccount\":\"ACC1386902400\",\r\n    \"toAccount\":\"ACC7207582723\",\r\n    \"amount\":1100\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/metrics",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "metrics"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
