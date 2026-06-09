@@ -1,0 +1,199 @@
+{
+  "info": {
+    "_postman_id": "21d21a45-5445-4eab-bed0-914a4003e278",
+    "name": "api rate limiter",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39881112"
+  },
+  "item": [
+    {
+      "name": "create rate limit rule",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiName\":\"Products API\",\r\n    \"endpoint\":\"/api/products\",\r\n    \"requestLimit\":5,\r\n    \"windowSeconds\":60,\r\n    \"premiumLimit\":20,\r\n    \"isActive\":true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/rate-limit/config",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "rate-limit",
+            "config"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all configurations",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiName\":\"Products API\",\r\n    \"endpoint\":\"/api/products\",\r\n    \"requestLimit\":5,\r\n    \"windowSeconds\":60,\r\n    \"premiumLimit\":20,\r\n    \"isActive\":true\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/rate-limit/config",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "rate-limit",
+            "config"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "test protected endpoint",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "USER001",
+            "type": "text"
+          },
+          {
+            "key": "x",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "verify order api",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "USER001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"product\":\"Laptop\",\r\n    \"quantity\":2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update rate limit",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"requestLimit\":10\r\n    \r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/rate-limit/config/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "rate-limit",
+            "config",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete config",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiName\":\"Products API\",\r\n    \"endpoint\":\"/api/products\",\r\n    \"requestLimit\":5,\r\n    \"windowSeconds\":60,\r\n    \"premiumLimit\":20,\r\n    \"isActive\":true\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/rate-limit/config/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "rate-limit",
+            "config",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
