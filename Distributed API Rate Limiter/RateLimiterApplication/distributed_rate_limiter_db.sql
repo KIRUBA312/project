@@ -1,0 +1,2 @@
+create database distributed_rate_limiter_db;
+use distributed_rate_limiter_db;
