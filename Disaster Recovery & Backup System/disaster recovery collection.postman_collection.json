@@ -1,0 +1,247 @@
+{
+  "info": {
+    "_postman_id": "22d227a9-0c2c-4402-b881-a6f48130fb7a",
+    "name": "disaster recovery collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39881112"
+  },
+  "item": [
+    {
+      "name": "create backup",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"backupName\":\"DB_BACKUP_01\",\r\n    \"backupType\":\"FULL\",\r\n    \"backupLocation\":\"E:/sample/test.txt\",\r\n    \"encrypted\":true,\r\n    \"compressed\":true,\r\n    \"storageType\":\"LOCAL\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/backup/start",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "backup",
+            "start"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get backup status",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"backupName\":\"DB_BACKUP_01\",\r\n    \"backupType\":\"FULL\",\r\n    \"backupLocation\":\"E:/sample/test.txt\",\r\n    \"encrypted\":true,\r\n    \"compressed\":true,\r\n    \"storageType\":\"LOCAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/backup/status/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "backup",
+            "status",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all backups",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"backupName\":\"DB_BACKUP_01\",\r\n    \"backupType\":\"FULL\",\r\n    \"backupLocation\":\"E:/sample/test.txt\",\r\n    \"encrypted\":true,\r\n    \"compressed\":true,\r\n    \"storageType\":\"LOCAL\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/backup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "backup"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "restore backup",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"backupId\":1,\r\n    \"restoreLocation\":\"E:/restore\",\r\n    \"restoredBy\":\"admin\",\r\n    \"remarks\":\"Testing Restore\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/restore",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "restore"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "check restore status",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"backupId\":1,\r\n    \"restoreLocation\":\"E:/restore\",\r\n    \"restoredBy\":\"admin\",\r\n    \"remarks\":\"Testing Restore\"\r\n\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/restore/status/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "restore",
+            "status",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "disaster simulation",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/simulation/db-crash",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "simulation",
+            "db-crash"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retention policy",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"backupId\":1,\r\n    \"restoreLocation\":\"E:/restore\",\r\n    \"restoredBy\":\"admin\",\r\n    \"remarks\":\"Testing Restore\"\r\n\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/retention/expired-count",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "retention",
+            "expired-count"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retention cleanup",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"backupId\":1,\r\n    \"restoreLocation\":\"E:/restore\",\r\n    \"restoredBy\":\"admin\",\r\n    \"remarks\":\"Testing Restore\"\r\n\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/retention/cleanup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "retention",
+            "cleanup"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actuator check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/actuator",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "actuator"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
