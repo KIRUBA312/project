@@ -1,0 +1,35 @@
+package com.example.auth_server.oauth2;
+
+import java.util.UUID;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
+import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
+import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
+
+@Configuration
+public class RegisteredClientConfig {
+
+	@Bean
+	RegisteredClientRepository registeredClientRepository() {
+		RegisteredClient client = RegisteredClient.withId(
+				UUID.randomUUID().toString())
+				.clientId("gateway-client")
+				.clientSecret("{noop}gateway-secret")
+				.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+				.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+				.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+				.authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+				.redirectUri("http://localhost:8080/login/oauth2/code/gateway-client")
+				.scope("openid")
+				.scope("profile")
+				.scope("read")
+				.scope("write")
+				.build();
+		return new InMemoryRegisteredClientRepository(client);
+	}
+	
+}
