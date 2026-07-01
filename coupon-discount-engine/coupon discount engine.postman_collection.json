@@ -1,0 +1,264 @@
+{
+  "info": {
+    "_postman_id": "201dbc46-24c8-4db3-b25a-528ce4bb52c4",
+    "name": "coupon discount engine",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39881112"
+  },
+  "item": [
+    {
+      "name": "create user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"kiruba\",\r\n    \"email\": \"kk@gmail.com\",\r\n    \"mobile\": \"9988774455\",\r\n    \"status\":\"ACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create coupon",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"code\":\"FLAT500\",\r\n  \"couponName\":\"FLAT Discount\",\r\n  \"couponType\":\"FLAT\",\r\n  \"discountValue\":500,\r\n  \"minimumOrderAmount\":5000,\r\n  \"maximumDiscount\":500,\r\n  \"productCategory\":\"ELECTRONICS\",\r\n  \"expiryDate\":\"2027-12-31\",\r\n  \"usageLimit\":100,\r\n  \"reusable\":false,\r\n  \"active\":true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/coupons",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "coupons"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create orders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": 1,\r\n    \"orderNumber\":\"ORD002\",\r\n    \"totalAmount\":50000,\r\n    \"orderStatus\":\"CREATED\",\r\n    \"productCategory\":\"ELECTRONICS\",\r\n    \"idempotencyKey\": \"ORDER-002\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "apply coupons",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\r\n   \"WELCOME10\"\r\n   \r\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/orders/2/apply-coupons",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "2",
+            "apply-coupons"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get order",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": 1,\r\n    \"orderNumber\":\"ORD001\",\r\n    \"totalAmount\":10000,\r\n    \"orderStatus\":\"CREATED\",\r\n    \"productCategory\":\"ELECTRONICS\",\r\n    \"idempotencyKey\": \"ORDER-001\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/orders/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all orders",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": 1,\r\n    \"orderNumber\":\"ORD001\",\r\n    \"totalAmount\":10000,\r\n    \"orderStatus\":\"CREATED\",\r\n    \"productCategory\":\"ELECTRONICS\",\r\n    \"idempotencyKey\": \"ORDER-001\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create order discounts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"orderId\":1,\r\n    \"couponId\":1,\r\n    \"discountApplied\":1000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/order-discounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "order-discounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all order discounts",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"orderId\":1,\r\n    \"couponId\":1,\r\n    \"discountApplied\":1000\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/order-discounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "order-discounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete order",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": 1,\r\n    \"orderNumber\":\"ORD001\",\r\n    \"totalAmount\":10000,\r\n    \"orderStatus\":\"CREATED\",\r\n    \"productCategory\":\"ELECTRONICS\",\r\n    \"idempotencyKey\": \"ORDER-001\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/orders/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
