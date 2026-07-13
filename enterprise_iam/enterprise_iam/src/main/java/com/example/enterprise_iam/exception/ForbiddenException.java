@@ -1,0 +1,8 @@
+package com.example.enterprise_iam.exception;
+
+public class ForbiddenException extends RuntimeException{
+
+	public ForbiddenException(String message) {
+		super(message);
+	}
+}
