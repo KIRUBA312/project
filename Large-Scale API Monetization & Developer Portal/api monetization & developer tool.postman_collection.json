@@ -1,0 +1,893 @@
+{
+  "info": {
+    "_postman_id": "14ee282f-aff1-46e3-8f35-6e685389685d",
+    "name": "api monetization & developer tool",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39881112"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\":\"Kiru\",\r\n  \"lastName\":\"S\",\r\n  \"email\":\"kiru@gmail.com\",\r\n  \"password\":\"Password@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\":\"kiru@gmail.com\",\r\n  \"password\":\"Password@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all categories",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/categories",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create developer",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"companyName\":\"Abc1 Streams\",\r\n    \"website\":\"abcstreams.com\",\r\n    \"address\":\"12,gandhi street,Ramapuram\",\r\n    \"city\":\"Chennai\",\r\n    \"state\":\"TamilNadu\",\r\n    \"country\":\"India\",\r\n    \"postalCode\":\"600055\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/developers/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "developers",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all developers",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"companyName\":\"Abc Streams\",\r\n    \"website\":\"abcstreams.com\",\r\n    \"address\":\"12,gandhi street,Ramapuram\",\r\n    \"city\":\"Chennai\",\r\n    \"state\":\"TamilNadu\",\r\n    \"country\":\"India\",\r\n    \"postalCode\":\"600055\"\r\n\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/developers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "developers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create consumerapplication",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"developerId\":1,\r\n    \"applicationName\":\"ABCVideos\",\r\n    \"description\":\"Its a streaming platform containing library of movies,and series and audio files\",\r\n    \"redirectUrl\":\"https://abcstreams.com/login\",\r\n    \"callbackUrl\":\"https://abcstreams.com/callback\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/developers/1/applications",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "developers",
+            "1",
+            "applications"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all applications",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"developerId\":1,\r\n    \"applicationName\":\"ABCVideos\",\r\n    \"description\":\"Its a streaming platform containing library of movies,and series and audio files\",\r\n    \"redirectUrl\":\"https://abcstreams.com/login\",\r\n    \"callbackUrl\":\"https://abcstreams.com/callback\"\r\n\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/developers/1/applications",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "developers",
+            "1",
+            "applications"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generate api key",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"applicationId\":2\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/developers/applications/2/api-keys",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "developers",
+            "applications",
+            "2",
+            "api-keys"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create categories",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"categoryName\":\"Entertainment\",\r\n    \"description\":\"Streaming APIs\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/categories",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create api",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"publisherId\":1,\r\n    \"categoryId\":9,\r\n    \"apiName\":\"Movie Search API\",\r\n    \"displayName\":\"Movie Search\",\r\n    \"description\":\"Search movies and TV series\",\r\n    \"baseUrl\":\"https://api.abcstreams.com\",\r\n    \"currentVersion\":\"v1\",\r\n    \"visibility\":\"PUBLIC\",\r\n    \"lifecycleStatus\":\"DRAFT\",\r\n    \"authenticationType\":\"API_KEY\",\r\n    \"rateLimitPerMinute\":100\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/publishers/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "publishers",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create version",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"versionName\":\"v1\",\r\n    \"endpoint\":\"https://api.abcstreams.com/v1\",\r\n    \"swaggerUrl\":\"https://api.abcstreams.com/swagger-ui/index.html\",\r\n    \"openapiUrl\":\"https://api.abcstreams.com/v3/api-docs\",\r\n    \"releaseNotes\":\"Initial stable release\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/1/versions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "1",
+            "versions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all versions",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"versionName\":\"v1\",\r\n    \"endpoint\":\"https://api.abcstreams.com/v1\",\r\n    \"swaggerUrl\":\"https://api.abcstreams.com/swagger-ui/index.html\",\r\n    \"openapiUrl\":\"https://api.abcstreams.com/v3/api-docs\",\r\n    \"releaseNotes\":\"Initial stable release\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/1/versions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "1",
+            "versions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create api documentation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"overview\":\"Movie Search API allows searching movies and TV shows.\",\r\n    \"authentication\":\"API_KEY\",\r\n    \"requestExample\":\"GET /movies?name=Avatar\",\r\n    \"responseExample\":\"{\\\"title\\\":\\\"Avatar\\\",\\\"year\\\":2009}\",\r\n    \"errorCodes\":\"400 Bad Request,401 Unauthorized,404 Not Found\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/1/documentation",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "1",
+            "documentation"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get documentation",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"overview\":\"Movie Search API allows searching movies and TV shows.\",\r\n    \"authentication\":\"API_KEY\",\r\n    \"requestExample\":\"GET /movies?name=Avatar\",\r\n    \"responseExample\":\"{\\\"title\\\":\\\"Avatar\\\",\\\"year\\\":2009}\",\r\n    \"errorCodes\":\"400 Bad Request,401 Unauthorized,404 Not Found\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/1/documentation",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "1",
+            "documentation"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "publish api",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"requestedBy\":1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/1/publish",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "1",
+            "publish"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all api",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"requestedBy\":1\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin approves publish request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"requestedBy\":1\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/admin/publish-requests/1/approve",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "admin",
+            "publish-requests",
+            "1",
+            "approve"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create subscription plan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiId\":1,\r\n    \"overview\":\"Movie Search API allows searching movies and TV shows.\",\r\n    \"authentication\":\"API_KEY\",\r\n    \"requestExample\":\"GET /movies?name=Avatar\",\r\n    \"responseExample\":\"{\\\"title\\\":\\\"Avatar\\\",\\\"year\\\":2009}\",\r\n    \"errorCodes\":\"400 Bad Request,401 Unauthorized,404 Not Found\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/subscriptions/plan",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "subscriptions",
+            "plan"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all subscription plans",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/subscriptions/plans",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "subscriptions",
+            "plans"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Developer -Subscribe",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/subscriptions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "subscriptions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "view subscriptions",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/subscriptions/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "subscriptions",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "view developer subscriptions",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/subscriptions/developer/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "subscriptions",
+            "developer",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "subscription history",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/subscriptions/1/history",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "subscriptions",
+            "1",
+            "history"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generate subs Invoice",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/billing/invoic/generate/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "billing",
+            "invoic",
+            "generate",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get invoice",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/billing/invoices/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "billing",
+            "invoices",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all subscription invoices",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/billing/invoices/subscription/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "billing",
+            "invoices",
+            "subscription",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "make payments",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/billing/payments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "billing",
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Billing Summary",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/billing/summary/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "billing",
+            "summary",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "dashboard",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/notifications/user/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "notifications",
+            "user",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
