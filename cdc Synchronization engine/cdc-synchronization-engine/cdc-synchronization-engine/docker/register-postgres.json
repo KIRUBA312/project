@@ -1,0 +1,29 @@
+{
+  "name": "postgres-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+
+    "database.hostname": "host.docker.internal",
+
+    "database.port": "5432",
+
+    "database.user": "postgres",
+
+    "database.password": "admin",
+
+    "database.dbname": "cdc_sync_db",
+
+    "database.server.name": "cdc",
+
+    "plugin.name": "pgoutput",
+
+    "slot.name": "cdc_slot",
+
+    "publication.autocreate.mode": "filtered",
+
+    "topic.prefix": "cdc",
+
+    "table.include.list":
+      "public.customers,public.products,public.inventory,public.orders,public.payments"
+  }
+}

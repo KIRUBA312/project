@@ -1,0 +1,396 @@
+{
+  "info": {
+    "_postman_id": "09220320-0876-4aef-baf6-e7403c2691bc",
+    "name": "cdc synchronaization engine",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39881112"
+  },
+  "item": [
+    {
+      "name": "health check",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/health/status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "health",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "register debezium",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"postgres-connector\",\r\n    \"databaseHost\": \"localhost\",\r\n    \"databasePort\": 5432,\r\n    \"databaseUser\": \"postgres\",\r\n    \"databasePassword\": \"admin\",\r\n    \"databaseName\": \"cdc_sync_db\",\r\n    \"slotName\": \"cdc_slot\",\r\n    \"publicationName\": \"dbz_publication\",\r\n    \"pluginName\": \"pgoutput\",\r\n    \"tableIncludeList\": \"public.orders,public.customers,public.products,public.inventory,public.payments\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/debezium/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "debezium",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create customers",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"customerCode\": \"CUST008\",\r\n  \"firstName\": \"dsk2\",\r\n  \"lastName\": \"S\",\r\n  \"email\": \"dsk2.s@example.com\",\r\n  \"phoneNumber\": \"9876500210\",\r\n  \"address\": \"T nagar, Chennai, Tamil Nadu\",\r\n  \"customerStatus\": \"ACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all customers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "verify elasticsearch",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9200",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9200"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "dashboard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dashboard",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "dashboard"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update customer",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"customerCode\": \"CUST008\",\r\n  \"firstName\": \"dsk2\",\r\n  \"lastName\": \"S\",\r\n  \"email\": \"ds.s@example.com\",\r\n  \"phoneNumber\": \"9876500210\",\r\n  \"address\": \"T nagar, Chennai, Tamil Nadu\",\r\n  \"customerStatus\": \"ACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/customers/8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers",
+            "8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"productCode\": \"prud001\",\r\n  \"productName\": \"Laptop\",\r\n  \"description\": \"Smart laptop 8gb ram 512gb ssd\",\r\n  \"price\": 50000,\r\n  \"category\": \"Electronics\",\r\n  \"active\":true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "make order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"customerId\": 2,\r\n  \"orderNumber\": \"ord002\",\r\n  \"totalAmount\": 50000,\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 50000,\r\n      \"totalPrice\": 50000\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create inventory",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"productId\": 1,\r\n  \"warehouseName\":\"Chennaiinventory\",\r\n  \"availableQuantity\":20,\r\n  \"reservedQuantity\":10\r\n      \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/inventory",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "inventory"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "make payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Idempotncy-Key",
+            "value": "manual-failover-002",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"paymentReference\":\"pay001\",\r\n  \"orderId\":1,\r\n  \"paymentAmount\":50000,\r\n  \"paymentMethod\":\"CARD\"\r\n      \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/payments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
