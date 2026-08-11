@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090b">
+<meta name="description" content="Padalgal — Tamil music for every mood.">
+<link rel="icon" href="assets/logo.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Padalgal — Tamil music, your mood.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="ambient"></div>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Padalgal home"><img src="assets/logo.svg"><span>padalgal</span></a>
+  <div class="location"><span class="dot"></span> Chennai · Tamil Nadu</div>
+  <div class="header-actions"><button id="searchBtn" class="icon-btn" aria-label="Search">⌕</button><button id="installBtn" class="pill-btn" hidden>Install</button></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="eyebrow">தமிழ் · MUSIC RADIO</div>
+  <h1>உன் mood.<br><span>உன் பாடல்.</span></h1>
+  <p>Pick a mood. Padalgal keeps the music moving.</p>
+  <div class="moods" id="moods"></div>
+</section>
+
+<section class="content-grid">
+  <div class="section-head">
+    <div><span class="eyebrow">NOW CURATING</span><h2 id="sectionTitle">Party</h2></div>
+    <button class="shuffle" id="shuffleBtn">⤨ Shuffle</button>
+  </div>
+  <div class="playlist" id="playlist"></div>
+</section>
+</main>
+
+<div class="player" id="player">
+  <div class="now">
+    <div class="cover" id="cover">♫</div>
+    <div><strong id="nowTitle">Pick a song</strong><small id="nowArtist">Padalgal Radio</small></div>
+  </div>
+  <div class="controls">
+    <button id="prevBtn">⏮</button><button class="play" id="playBtn">▶</button><button id="nextBtn">⏭</button>
+    <div class="progress"><div id="progressFill"></div></div>
+  </div>
+  <div class="player-actions"><button id="muteBtn">🔊</button><button id="openBtn">↗</button></div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-card"><button class="close" id="closeSearch">×</button><input id="searchInput" autofocus placeholder="Search Tamil songs, artists..."><div id="searchResults"></div></div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="js/data.js"></script><script src="js/app.js"></script>
+</body>
+</html>
